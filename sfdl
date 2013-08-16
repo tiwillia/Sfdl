@@ -1,0 +1,22 @@
+#!/bin/bash
+# Writting by Timothy S. Williams <tiwillia@redhat.com>
+
+# This is the frontend to sfdl
+# All of the actual stuff happens in do_get
+# Having this file along with an "alias sfdl='. sfdl' allows
+# us to change into the case directory as soon as the program ends.
+
+source ~/.config/get.cfg
+
+if [ ! -z $1 ]; then
+	do_get $1
+	echo ""
+	echo "Changed directory to $DIR/$1"
+	cd $DIR/$1
+else
+	echo ""
+	echo "Enter the case number as a parameter to"
+	echo "automatically cd into the case directory"
+	echo ""
+	do_get
+fi
